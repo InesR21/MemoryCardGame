@@ -1,0 +1,1 @@
+const cartas  =document.querySelectorAll('.cartas');
