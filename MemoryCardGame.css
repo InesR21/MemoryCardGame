@@ -1,19 +1,18 @@
 * {
-    padding: 0;
-    margin: 0;
     box-sizing: border-box;
 }
 body {
     height: 100vh;
-    background: cornflowerblue;
+    background: #f4f4f4;
     display: flex;
+    justify-content: center;
 }
 .juego-cartas{
-    width: 640px;
-    height: 640px;
+    width: calc(75%);
+    height: calc(100%);
     display: flex;
     flex-wrap: wrap;
-    margin: auto;
+    margin: calc(2%);
 }
 .cartas{
     width:calc(25% - 10px);
@@ -21,11 +20,15 @@ body {
     position: relative;
     margin: 5px;
     transform: scale(1);
-    
+    transform-style: preserve-3d;
+    transition: transform .5s;
 }
 .cartas:active{
     transform: scale(.90);
     transition: transform .2s;
+}
+.cartas.flip {
+    transform: rotateY(180deg);
 }
 .carta-frente, .carta-detras {
     width: 100%;
@@ -33,5 +36,10 @@ body {
     padding: 20px;
     position: absolute;
     border-radius: 5px;
-    background:  deeppink;
+    background:  #778899;
+    backface-visibility: hidden;
 }
+.carta-frente{
+    transform: rotateY(180deg);
+}
+
